@@ -1,6 +1,15 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "esModuleInterop": true
-  }
+    "esModuleInterop": true,
+    "lib": ["es2016", "dom"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true
+
+  },
+  "include": [
+    "src/**/*",
+    "./images.d.ts"
+  ],
 }
