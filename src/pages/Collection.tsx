@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchCollection } from '../lib/collection';
 import { Card } from "../components/Card";
-import { ICard } from "../types/CollectionData";
+import { ICard } from "../types/Card";
 import './Collection.css';
 
 export const Collection: React.FC = () => {

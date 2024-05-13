@@ -10,6 +10,8 @@ export interface ICard {
   player: IPlayer;
 }
 
-export interface ICollectionData {
-  cards: ICard[];
+export interface CreateCardFormData {
+  firstname: string;
+  lastname: string;
+  birthday: string;
 }

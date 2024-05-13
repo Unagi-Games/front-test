@@ -1,6 +1,6 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { ICard } from "../../types/CollectionData";
+import { ICard } from "../../types/Card";
 import './index.css';
 
 export const Card: React.FC<{ card: ICard }> = ({ card}) => {
