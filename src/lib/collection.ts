@@ -19,7 +19,7 @@ export const createCard = async (formData: CreateCardFormData) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({ player: formData }),
     });
 
     if (!response.ok) {

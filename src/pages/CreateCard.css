@@ -9,26 +9,3 @@ form .item {
   margin-bottom: 20px;
   width: 50%;
 }
-
-input {
-  border: 1px solid #ccc !important;
-  padding: 8px;
-  display: block;
-  overflow: visible;
-  width: 100%;
-  border-radius: 5px;
-}
-
-button {
-  color: #fff !important;
-  background-color: #2196F3 !important;
-  border: none;
-  display: inline-block;
-  padding: 8px 16px;
-  vertical-align: middle;
-  overflow: hidden;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  white-space: nowrap;
-}
