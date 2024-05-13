@@ -1,15 +1,15 @@
 import React from 'react';
-
 import { fetchCollection } from '../lib/collection';
-
+import { Card } from "../components/Card";
 import './Collection.css';
 
-export const Collection = () => {
+export const Collection: React.FC = () => {
   const collection = fetchCollection();
   const card = collection[0];
 
-  /**
-   * Step 1: Render the card
-   */
-  return <div />;
+  return (
+    <>
+      <Card card={card} />
+    </>
+  );
 };
