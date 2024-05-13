@@ -44,6 +44,7 @@ export const CreateCard = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h1 className="title">Create Card</h1>
       <div className="item">
         <input
           type="text"
