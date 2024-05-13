@@ -1,0 +1,24 @@
+.collection {
+  padding: 10px;
+}
+
+.collection .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collection .top .order {
+  display: flex;
+  align-items: center;
+}
+
+.collection .title {
+  text-align: center;
+}
+
+.collection .list {
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
