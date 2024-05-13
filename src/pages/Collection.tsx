@@ -44,6 +44,7 @@ export const Collection: React.FC = () => {
   return (
     <div className="collection">
       <h1 className="title">Collections</h1>
+
       <div className="top">
         <button onClick={() => history.push('/create-card')}>Go To Create Card Page</button>
         <div className="order">
@@ -56,6 +57,7 @@ export const Collection: React.FC = () => {
           </select>
         </div>
       </div>
+
       <div className="list">
         {
           sortCards.map((card: ICard) => (

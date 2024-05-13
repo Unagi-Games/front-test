@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import * as Yup from 'yup';
-import { CreateCardFormData } from "../types/Card";
+import { IPlayer } from "../types/Card";
 import { createCard } from "../lib/collection";
 import './CreateCard.css';
 
@@ -13,7 +13,7 @@ const validationSchema = Yup.object().shape({
 
 export const CreateCard = () => {
   const history = useHistory();
-  const [formData, setFormData] = useState<CreateCardFormData>({
+  const [formData, setFormData] = useState<IPlayer>({
     firstname: '',
     lastname: '',
     birthday: ''
@@ -26,8 +26,6 @@ export const CreateCard = () => {
     try {
       await validationSchema.validate(formData, { abortEarly: false });
       await createCard(formData);
-      setFormData({ firstname: '', lastname: '', birthday: '' });
-      setErrors({});
       history.push('/collection');
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
@@ -45,6 +43,7 @@ export const CreateCard = () => {
   return (
     <form onSubmit={handleSubmit}>
       <h1 className="title">Create Card</h1>
+
       <div className="item">
         <input
           type="text"
@@ -52,8 +51,9 @@ export const CreateCard = () => {
           value={formData.firstname}
           onChange={(e) => setFormData({ ...formData, firstname: e.target.value })}
         />
-        {errors.firstname && <span style={{ color: 'red' }}>{errors.firstname}</span>}
+        {errors.firstname && <span>{errors.firstname}</span>}
       </div>
+
       <div className="item">
         <input
           type="text"
@@ -61,8 +61,9 @@ export const CreateCard = () => {
           value={formData.lastname}
           onChange={(e) => setFormData({ ...formData, lastname: e.target.value })}
         />
-        {errors.lastname && <span style={{ color: 'red' }}>{errors.lastname}</span>}
+        {errors.lastname && <span>{errors.lastname}</span>}
       </div>
+
       <div className="item">
         <input
           type="date"
@@ -70,10 +71,12 @@ export const CreateCard = () => {
           value={formData.birthday}
           onChange={(e) => setFormData({ ...formData, birthday: e.target.value })}
         />
-        {errors.birthday && <span style={{ color: 'red' }}>{errors.birthday}</span>}
+        {errors.birthday && <span>{errors.birthday}</span>}
       </div>
+
       <button type="submit">Create Card</button>
-      {errors.server && <span style={{ color: 'red' }}>{errors.server}</span>}
+
+      {errors.server && <span>{errors.server}</span>}
     </form>
   );
 };

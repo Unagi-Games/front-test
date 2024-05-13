@@ -1,4 +1,4 @@
-import {CreateCardFormData} from "../types/Card";
+import { IPlayer } from "../types/Card";
 
 export const fetchCollection = async () => {
   try {
@@ -12,7 +12,7 @@ export const fetchCollection = async () => {
   }
 };
 
-export const createCard = async (formData: CreateCardFormData) => {
+export const createCard = async (formData: IPlayer) => {
   try {
     const response = await fetch('http://localhost:8001/cards', {
       method: 'POST',

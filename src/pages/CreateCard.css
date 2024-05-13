@@ -9,3 +9,7 @@ form .item {
   margin-bottom: 20px;
   width: 50%;
 }
+
+form span {
+  color: red;
+}

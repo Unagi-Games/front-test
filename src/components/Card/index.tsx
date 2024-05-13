@@ -13,7 +13,7 @@ export const Card: React.FC<{ card: ICard }> = ({ card}) => {
         placeholder={<div>Loading...</div>}
       />
       <div>
-        <p>{`${card.player.firstname} ${card.player.lastname}`}</p>
+        <p>{card.player.firstname} {card.player.lastname}</p>
         <p>{new Date(card.player.birthday).toLocaleDateString()}</p>
       </div>
     </div>
