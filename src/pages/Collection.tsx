@@ -1,15 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import CreateCard from './CreateCard';
+import { Card } from '../types';
 
-import { fetchCollection } from '../lib/collection';
+const CollectionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-import './Collection.css';
+const Loading = styled.div`
+  margin: 20px;
+`;
 
-export const Collection = () => {
-  const collection = fetchCollection();
-  const card = collection[0];
+const Error = styled.div`
+  color: red;
+  margin: 20px;
+`;
 
-  /**
-   * Step 1: Render the card
-   */
-  return <div />;
+const fetchCollection = async (): Promise<Card[]> => {
+  const response = await fetch('http://localhost:8001/cards');
+  if (!response.ok) {
+    console.log('error', response);
+  }
+  return response.json();
 };
+
+const Collection: React.FC = () => {
+  const [cards, setCards] = useState<Card[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadCollection = async () => {
+      try {
+        const data = await fetchCollection();
+        console.log('data', data);
+        setCards(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    loadCollection();
+  }, []);
+
+  if (loading) {
+    return <Loading>Loading...</Loading>;
+  }
+
+  if (error) {
+    return <Error>Error: {error}</Error>;
+  }
+
+  return (
+    <CollectionContainer>
+      {cards.map((card) => (
+        <CreateCard key={card.id} player={card.player} />
+      ))}
+    </CollectionContainer>
+  );
+};
+
+export default Collection;
