@@ -1,3 +1,13 @@
+.sort-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  input {
+    width: 20px;
+  }
+}
+
 .cards {
   display: flex;
   flex-wrap: wrap;
