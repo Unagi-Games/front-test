@@ -3,6 +3,8 @@ import { Data } from '../../types';
 
 import { constructImgUrl } from '../../utils/getUrl';
 
+import noProfile from '../../assets/noProfile.png';
+
 import './Card.css';
 
 export const Card: React.FC<Data> = ({ player, id }) => {
@@ -23,7 +25,12 @@ export const Card: React.FC<Data> = ({ player, id }) => {
         </p>
       </div>
       <div>
-        <img className="player-img" src={url} loading="lazy" />
+        <img
+          className="player-img"
+          src={!!url ? url : noProfile}
+          alt={`${player.firstname} ${player.lastname}`}
+          loading="lazy"
+        />
       </div>
     </div>
   );

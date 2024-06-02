@@ -1,3 +1,5 @@
+import { Data } from '../types';
+
 // [
 //   {
 //     id: 26166,
@@ -14,4 +16,15 @@
 export const fetchCollection = async function (url: string) {
   const response = await fetch(url);
   return response.json();
+};
+
+export const addPlayer = async function (url: string, payload: Data) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  return response;
 };

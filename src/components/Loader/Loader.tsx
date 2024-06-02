@@ -13,5 +13,5 @@ export const Loader: React.FC<LoaderProps> = (props) => {
   if (loading) {
     return <div className={`loading ${size}`} />;
   }
-  return <div>{children}</div>;
+  return <>{children}</>;
 };
