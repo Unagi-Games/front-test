@@ -4,6 +4,7 @@ import { fetchCollection } from '../lib/collection';
 import './Collection.css';
 import Card from '../types/interfaces/Card';
 import { CardComponent } from '../components/CardComponent';
+import styled from 'styled-components';
 
 
 
@@ -41,13 +42,25 @@ export const Collection = () => {
 
 
   return (
-    <div className="collection">
-
-      {collection.map(card => (
-        <CardComponent key={card.id} card={card} />
-      ))}
-    </div>
+    <CollectionWrapper>
+      
+      <GridWrapper>
+        {collection.map(card => (
+          <CardComponent key={card.id} card={card} />
+        ))}
+      </GridWrapper>
+    </CollectionWrapper>
   );
 
 
 };
+
+const CollectionWrapper = styled.div`
+  padding: 16px;
+`;
+
+const GridWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+`;
