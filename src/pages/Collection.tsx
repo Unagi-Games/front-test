@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import { fetchCollection } from '../lib/collection';
+import { LazyImage } from '../components/LazyImage'
 import './Collection.css';
 import Card from '../types/interfaces/Card';
 
@@ -31,7 +32,7 @@ export const Collection = () => {
 
   return (
     <div className="card">
-      <img src={imageUrl} alt={`${card.player.firstname} ${card.player.lastname}`} />
+      <LazyImage src={imageUrl} alt={`${card.player.firstname} ${card.player.lastname}`} ></LazyImage>
       <h2>{card.player.firstname} {card.player.lastname}</h2>
       <p>DOB: {new Date(card.player.birthday).toLocaleDateString()}</p>
     </div>
