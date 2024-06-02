@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import './CreateCard.css';
 import styled from 'styled-components';
+import Card from '../types/interfaces/Card';
 
 /**
  * Step 3: Render a form and everything needed to be able to create a card
@@ -11,11 +12,51 @@ export const CreateCard = () => {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
     const [birthday, setBirthday] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    const [success, setSuccess] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-    };
+        setLoading(true);
+        setError(null);
+        setSuccess(null);
 
+        // Client-side validation
+        if (!firstname || !lastname || !birthday) {
+            setError('All fields are required.');
+            setLoading(false);
+            return;
+        }
+
+        const newCard: Omit<Card, 'id'> = {
+            player: {
+                firstname,
+                lastname,
+                birthday,
+            },
+        };
+
+        try {
+            const response = await fetch('http://localhost:8001/cards', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newCard),
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status}`);
+            }
+
+            setSuccess('Card created successfully!');
+        } catch (err) {
+            setError(`Failed to create card: ${err.message}`);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
         <FormWrapper>
@@ -33,13 +74,14 @@ export const CreateCard = () => {
                     Birthday:
                     <Input type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} />
                 </Label>
-                <Button type="submit">
+                <Button type="submit" disabled={loading}>
+                    {loading ? 'Creating...' : 'Create Card'}
                 </Button>
-
+                {error && <ErrorMessage>{error}</ErrorMessage>}
+                {success && <SuccessMessage>{success}</SuccessMessage>}
             </Form>
         </FormWrapper>
     );
-
 };
 
 
