@@ -4,6 +4,7 @@ import { fetchCollection } from '../lib/collection';
 import { LazyImage } from '../components/LazyImage'
 import './Collection.css';
 import Card from '../types/interfaces/Card';
+import { CardComponent } from '../components/CardComponent';
 
 
 
@@ -11,12 +12,18 @@ export const Collection = () => {
 
   const [collection, setCollection] = useState<Card[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const getCollection = async () => {
-      const data = await fetchCollection();
-      setCollection(data);
-      setLoading(false);
+      try {
+        const data = await fetchCollection();
+        setCollection(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     };
     getCollection();
   }, []);
@@ -25,16 +32,21 @@ export const Collection = () => {
     return <div>Loading...</div>;
   }
 
-  const generateImageUrl = (id: number) => `https://images.fotmob.com/image_resources/playerimages/${id}.png`;
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
-  const card = collection[0];
-  const imageUrl = generateImageUrl(card.id);
+  if (collection.length === 0) {
+    return <div>No cards available</div>;
+  }
+
 
   return (
-    <div className="card">
-      <LazyImage src={imageUrl} alt={`${card.player.firstname} ${card.player.lastname}`} ></LazyImage>
-      <h2>{card.player.firstname} {card.player.lastname}</h2>
-      <p>DOB: {new Date(card.player.birthday).toLocaleDateString()}</p>
+    <div className="collection">
+
+      {collection.map(card => (
+        <CardComponent key={card.id} card={card} />
+      ))}
     </div>
   );
 
