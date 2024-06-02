@@ -2,7 +2,11 @@ import React from 'react'
 import Card from '../types/interfaces/Card';
 import { LazyImage } from './LazyImage';
 
-export const Card = (card: Card) => {
+interface CardComponentProps {
+    card: Card;
+}
+
+export const CardComponent = ({ card }: CardComponentProps) => {
 
 
     const generateImageUrl = (id: number) => `https://images.fotmob.com/image_resources/playerimages/${id}.png`;
