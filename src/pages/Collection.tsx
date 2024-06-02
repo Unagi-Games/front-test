@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import { fetchCollection } from '../lib/collection';
-import { LazyImage } from '../components/LazyImage'
 import './Collection.css';
 import Card from '../types/interfaces/Card';
 import { CardComponent } from '../components/CardComponent';
