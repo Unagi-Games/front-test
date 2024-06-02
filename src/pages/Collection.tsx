@@ -5,6 +5,7 @@ import { LazyImage } from '../components/LazyImage'
 import './Collection.css';
 import Card from '../types/interfaces/Card';
 import { CardComponent } from '../components/CardComponent';
+import styled from 'styled-components';
 
 
 
@@ -33,7 +34,7 @@ export const Collection = () => {
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <ErrorWrapper>Error: {error}</ErrorWrapper>;
   }
 
   if (collection.length === 0) {
@@ -52,3 +53,9 @@ export const Collection = () => {
 
 
 };
+
+const ErrorWrapper = styled.div`
+  color: red;
+  text-align: center;
+  margin: 16px;
+`;
