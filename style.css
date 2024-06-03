@@ -1,0 +1,12 @@
+* {
+    color: hsl(210, 8%, 80%);
+}
+
+a {
+    text-decoration: none;
+    color: hsl(210, 8%, 80%);
+}
+
+body {
+    background-color: #2d2e2f;
+}
