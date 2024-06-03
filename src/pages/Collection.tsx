@@ -30,7 +30,7 @@ export const Collection = () => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <MessageWtapper>Loading...</MessageWtapper>;
   }
 
   if (error) {
@@ -38,7 +38,7 @@ export const Collection = () => {
   }
 
   if (collection.length === 0) {
-    return <div>No cards available</div>;
+    return <MessageWtapper>No cards available</MessageWtapper>;
   }
 
   const handleOrderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,21 +63,21 @@ export const Collection = () => {
       <OrderWrapper>
 
         <label htmlFor="firstname">
-          <input type="radio" id="firstname" value="firstname" checked={order === 'firstname'} onChange={handleOrderChange}/>
-            <span className="rdo"></span>
-            <span>First Name</span>
+          <input type="radio" id="firstname" value="firstname" checked={order === 'firstname'} onChange={handleOrderChange} />
+          <span className="rdo"></span>
+          <span>First Name</span>
         </label>
 
         <label htmlFor="lastname">
-          <input type="radio" id="lastname" value="lastname" checked={order === 'lastname'} onChange={handleOrderChange}/>
-            <span className="rdo"></span>
-            <span>Last Name</span>
+          <input type="radio" id="lastname" value="lastname" checked={order === 'lastname'} onChange={handleOrderChange} />
+          <span className="rdo"></span>
+          <span>Last Name</span>
         </label>
 
         <label htmlFor="birthday">
-          <input type="radio" id='birthday'  value="birthday" checked={order === 'birthday'} onChange={handleOrderChange}/>
-            <span className="rdo"></span>
-            <span>Date of Birth</span>
+          <input type="radio" id='birthday' value="birthday" checked={order === 'birthday'} onChange={handleOrderChange} />
+          <span className="rdo"></span>
+          <span>Date of Birth</span>
         </label>
       </OrderWrapper>
 
@@ -98,6 +98,7 @@ const CollectionWrapper = styled.div`
 `;
 
 const GridWrapper = styled.div`
+margin:5.rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 16px;
@@ -113,4 +114,14 @@ const OrderWrapper = styled.div`
       margin-right: 4px;
     }
   }
+`;
+
+const MessageWtapper = styled.div`
+max-width: 600px;
+margin: 5rem auto;
+padding: 16px;
+background-color: #1d1e22;
+border: 1px solid #4d4d4d;
+border-radius: 8px;
+box-shadow: 0 5px 30px rgba(1, 1, 1, 0.3);
 `;
