@@ -18,7 +18,7 @@ export const CreateCard = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         if (loading) return;
 
         setLoading(true);
@@ -91,11 +91,12 @@ export const CreateCard = () => {
 
 const FormWrapper = styled.div`
   max-width: 400px;
-  margin: auto;
+  margin: 5rem auto;
   padding: 16px;
-  border: 1px solid #ccc;
+  background-color:#1d1e22;
+  border: 1px solid #4d4d4d;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 5px 30px rgba(1, 1, 1, 0.3);
 `;
 
 const Form = styled.form`
@@ -105,17 +106,32 @@ const Form = styled.form`
 
 const Label = styled.label`
   margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap:1rem;
 `;
 
 const Input = styled.input`
-  padding: 8px;
-  margin-top: 4px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+flex:1;
+  padding: 6px 12px;
+background: rgb(31, 32, 35);
+border: 1px solid rgb(60, 63, 68);
+border-radius: 4px;
+font-size: 13px;
+color: rgb(247, 248, 248);
+height: 35px;
+appearance: none;
+transition: border 0.15s ease 0s;
+:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: rgb(100, 153, 255);
+}
 `;
 
 const Button = styled.button`
+margin-top:.5rem;
   padding: 8px 16px;
   background-color: #28a745;
   color: white;
@@ -136,3 +152,7 @@ const SuccessMessage = styled.div`
   color: green;
   margin-top: 16px;
 `;
+
+
+
+
