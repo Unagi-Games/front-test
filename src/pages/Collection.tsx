@@ -61,17 +61,23 @@ export const Collection = () => {
     <CollectionWrapper>
 
       <OrderWrapper>
-        <label>
-          <input type="radio" value="firstname" checked={order === 'firstname'} onChange={handleOrderChange} />
-          First Name
+
+        <label htmlFor="firstname">
+          <input type="radio" id="firstname" value="firstname" checked={order === 'firstname'} onChange={handleOrderChange}/>
+            <span className="rdo"></span>
+            <span>First Name</span>
         </label>
-        <label>
-          <input type="radio" value="lastname" checked={order === 'lastname'} onChange={handleOrderChange} />
-          Last Name
+
+        <label htmlFor="lastname">
+          <input type="radio" id="lastname" value="lastname" checked={order === 'lastname'} onChange={handleOrderChange}/>
+            <span className="rdo"></span>
+            <span>Last Name</span>
         </label>
-        <label>
-          <input type="radio" value="birthday" checked={order === 'birthday'} onChange={handleOrderChange} />
-          Date of Birth
+
+        <label htmlFor="birthday">
+          <input type="radio" id='birthday'  value="birthday" checked={order === 'birthday'} onChange={handleOrderChange}/>
+            <span className="rdo"></span>
+            <span>Date of Birth</span>
         </label>
       </OrderWrapper>
 
@@ -99,7 +105,7 @@ const GridWrapper = styled.div`
 
 const OrderWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: end;
   margin-bottom: 16px;
   label {
     margin: 0 10px;
