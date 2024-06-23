@@ -34,7 +34,7 @@
 		"react-router-dom": "^5.3.0"
 	},
 	"lint-staged": {
-		"*.{,ts,tsx,jsx}": "npm run lint",
+		"*.{js,ts,tsx,jsx}": "npm run lint",
 		"*.{js,css,md,html,json}": "npm run format"
 	}
 }
