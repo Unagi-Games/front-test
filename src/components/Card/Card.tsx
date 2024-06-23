@@ -4,7 +4,7 @@ import { TCard } from '../../types';
 import Image from '../Image/Image';
 import { convertIsoTimeToNormalDate } from '../../utils';
 
-const StyledCard = styled.button`
+const StyledCard = styled.div`
 	border: 1px;
 	border-radius: 6px;
 	border-color: aqua;
@@ -16,16 +16,17 @@ const StyledCard = styled.button`
 `;
 
 const ImageHolder = styled.div`
-	flex-grow: 1;
+	flex-grow: 3;
 	width: 100%;
 `;
 
 const PlayerDetail = styled.div`
-	flex-grow: 2;
-	background-color: red;
+	flex-grow: 1;
+	background-color: wheat;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	padding: 0 4px;
 `;
 
 const Card: React.FC<TCard> = ({ id, player }) => {
