@@ -7,14 +7,14 @@ import { Collection } from './pages/Collection';
 import { CreateCard } from './pages/CreateCard';
 
 function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/collection" component={Collection} />
-        <Route exact path="/create-card" component={CreateCard} />
-      </Switch>
-    </Router>
-  );
+	return (
+		<Router>
+			<Switch>
+				<Route exact path="/collection" component={Collection} />
+				<Route exact path="/create-card" component={CreateCard} />
+			</Switch>
+		</Router>
+	);
 }
 
 render(<App />, document.getElementById('root'));

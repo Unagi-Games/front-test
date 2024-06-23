@@ -15,7 +15,7 @@ const StyledContainer = styled.div`
 `;
 
 const Container: FC<TProps> = ({ children }) => (
-  <StyledContainer>{children}</StyledContainer>
+	<StyledContainer>{children}</StyledContainer>
 );
 
 export default Container;
