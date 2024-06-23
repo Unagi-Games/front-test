@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { TCard } from '../../types';
 import Image from '../Image/Image';
+import { convertIsoTimeToNormalDate } from '../../utils';
 
 const StyledCard = styled.button`
 	border: 1px;
@@ -35,7 +36,7 @@ const Card: React.FC<TCard> = ({ id, player }) => {
 			</ImageHolder>
 			<PlayerDetail>
 				<p>DOB:</p>
-				<p>{player.birthday}</p>
+				<p>{convertIsoTimeToNormalDate(player.birthday)}</p>
 			</PlayerDetail>
 		</StyledCard>
 	);
