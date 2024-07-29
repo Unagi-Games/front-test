@@ -1,16 +1,11 @@
-export const fetchCollection = () => {
-  /**
-   * Step 2: Instead of directly returning the collection, fetch it from http://localhost:8001/cards
-   */
-  return [
-    {
-      id: 26166,
-      player: {
-        firstname: 'Karim',
-        lastname: 'Benzema',
-        birthday: '1987-12-19T08:38:50.090Z',
-        image: 'https://images.fotmob.com/image_resources/playerimages/26166.png'
-      }
-    }
-  ];
+import axios from 'axios';
+import { CardData } from '../types';
+
+export const fetchCollection = async (): Promise<CardData[]> => {
+  try {
+    const response = await axios.get<CardData[]>('http://localhost:8001/cards');
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 };

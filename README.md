@@ -1,10 +1,20 @@
 # Unagi Frontend Test
 
+# Install dependencies
+
+npm install
+
+# Start API & Dev server
+
+npm start
+
+# Navigate to http://localhost:8000/collection to see the implementation
+
 ## Requirements
 
-* [Node.js](https://nodejs.org)
-* [TypeScript](https://www.typescriptlang.org/)
-* [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
 
 ## Basics
 
@@ -29,7 +39,7 @@ Also, it will be great if you split your steps using branches or commits.
 Don't hesitate to over-engineer the problem a bit, so we will be able to see
 the way you work, split and organize your file on a real project.
 
-``` sh
+```sh
 # Install dependencies
 npm install
 
@@ -45,13 +55,13 @@ a single card with the data stored in `card` variable (line 9).
 This page can be seen on [http://localhost:8000/collection](http://localhost:8000/collection)
 
 Bonus points (can be done in arbitrary order):
+
 - Add TS types/interfaces where applicable.
 - Convert code to fetch the player image without having the full URL,
   but by generating it with the existing ID.
 - Implement simple lazy loading for the player image, show loading indicator
   while the image is loading.
 - Format player DOB in a human-readable way.
-
 
 ### 2. Fetch collection from a fake REST API
 
@@ -61,6 +71,7 @@ to fetch cards from http://localhost:8001/cards instead of the local constant.
 Apply necessary changes to [Collection](/src/pages/Collection.tsx) component if needed.
 
 Bonus points (can be done in arbitrary order):
+
 - Add loading state in the UI.
 - Handle error state, e.g. if the server returns 500.
 - Implement a reusable card component.
@@ -78,6 +89,7 @@ You can use `json-server` to persist changes for this API.
 Basically, you can POST json onto http://localhost:8001/cards.
 
 Bonus points (can be done in arbitrary order):
+
 - Implement client-side validation.
 - Implement REST/REST-like endpoint(s).
 - Add TS types/interfaces where applicable.
@@ -91,6 +103,7 @@ card in the collection (e.g. a grid of cards).
 Make sure that this screen is responsive.
 
 Bonus points (can be done in arbitrary order):
+
 - Add loading state in the UI.
 - Add empty state (endpoint returns an empty array).
 - Add simple client-side ordering by any criteria - DOB/Last name/First name etc.
@@ -99,6 +112,7 @@ Bonus points (can be done in arbitrary order):
 ## Scoring
 
 You will be evaluated based on the following criteria:
+
 - **Functionality:**
   - Does your code work?
   - Think build, warnings, error management.
@@ -109,6 +123,7 @@ You will be evaluated based on the following criteria:
   - Did you go further the scope? But should not interfere with the two previous point.
 
 **Ideas and tools we love and use in the real project:**
+
 - TypeScript without `any`
 - Hooks
 - Breaking code down to small pieces
