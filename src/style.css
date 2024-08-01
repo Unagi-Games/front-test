@@ -1,0 +1,149 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #222
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+  
+
+
+  .card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-body {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .card-title {
+    font-size: 1.5em;
+    margin: 0;
+    color: #333;
+  }
+  
+  .card-text {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  .card-id {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-top: 10px;
+  }
+  
+
+  .loading-spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .loading-spinner {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .card-grid-wrapper {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+  }
+
+ .new-card-btn{
+    padding: 10px 15px;
+    border: none;
+    background-color: #424242;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    border-radius: 0;
+    }
+ .new-card-btn:hover{
+       background-color: #000;
+      }
+
+    @media screen and (max-width: 600px) {
+      .card-container {
+        grid-template-columns: 1fr; /* Make the grid single-column */
+        padding: 8px; /* Reduce padding */
+      }
+    
+      .card {
+        width: 100%; /* Make cards take full width */
+        margin-bottom: 16px; /* Add some space between cards */
+      }
+    
+      .card-body {
+        padding: 10px; /* Reduce padding inside cards */
+      }
+    
+      .card-title {
+        font-size: 1.2em; /* Adjust font size */
+      }
+    
+      .card-text {
+        font-size: 0.9em; /* Adjust font size */
+      }
+    
+      .card-id {
+        font-size: 0.8em; /* Adjust font size */
+      }
+    
+      .loading-spinner {
+        width: 60px; /* Adjust spinner size */
+        height: 60px; /* Adjust spinner size */
+        border-width: 8px; /* Adjust border width */
+      }
+    
+ .new-card-btn {
+        font-size: 14px; /* Adjust button font size */
+        padding: 8px 12px; /* Adjust button padding */
+      }
+    }
+    
+    
+  .no-result {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    min-height: 100vh;
+  }
