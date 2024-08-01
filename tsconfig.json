@@ -2,6 +2,7 @@
   "compilerOptions": {
     "jsx": "react",
     "esModuleInterop": true,
-    "types": ["history", "react", "scheduler"]
+    "types": ["history", "react", "scheduler"],
+    "lib": [ "es2015", "DOM"]
   }
 }

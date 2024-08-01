@@ -1,33 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { Card as CardProps } from '../types';
 import { fetchCollection } from '../lib/collection';
-import { Card } from '../types';
-export const Collection = () => {
-  const collection: Card[] = fetchCollection();
-  const card: Card = collection[0];
+import './Collection.css';
+import Card from '../components/Card';
+
+export const Collection: React.FC = () => {
+  const [collection, setCollection] = useState<CardProps[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const getCollection = async () => {
+      try {
+        const data = await fetchCollection();
+        setCollection(data);
+      } catch (error) {
+        setError((error as Error).message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getCollection();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loading-spinner-container">
+        <div className="loading-spinner"></div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  if (collection.length === 0) {
+    return <div>No cards available</div>;
+  }
 
   return (
     <div className="card-container">
-      <div className="card">
-        <img
-          className="card-image"
-          src={
-            'https://images.fotmob.com/image_resources/playerimages/' +
-            card.id +
-            '.png'
-          }
-          alt={`${card.player.firstname} ${card.player.lastname}`}
-        />
-        <div className="card-body">
-          <h5 className="card-title">
-            {card.player.firstname} {card.player.lastname}
-          </h5>
-          <p className="card-text">
-            Birthday: {new Date(card.player.birthday).toLocaleDateString()}
-          </p>
-          <p className="card-id">ID: {card.id}</p>
-        </div>
-      </div>
+      {collection.map((item) => {
+        return <Card id={item.id} player={item.player} />;
+      })}
     </div>
   );
 };

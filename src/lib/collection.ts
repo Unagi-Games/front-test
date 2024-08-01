@@ -1,18 +1,19 @@
-import { Card, Player } from '../types';
-export const fetchCollection = (): Card[] => {
-  /**
-   * Step 2: Instead of directly returning the collection, fetch it from http://localhost:8001/cards
-   */
-  return [
-    {
-      id: 26166,
-      player: {
-        firstname: 'Karim',
-        lastname: 'Benzema',
-        birthday: '1987-12-19T08:38:50.090Z',
-        image:
-          'https://images.fotmob.com/image_resources/playerimages/26166.png',
-      },
-    },
-  ];
+import { Card } from '../types';
+
+export const fetchCollection = async (): Promise<Card[]> => {
+  try {
+    const response = await fetch('http://localhost:8001/cards');
+    if (!response.ok) {
+      if (response.status === 500) {
+        throw new Error('Internal Server Error (500)');
+      } else {
+        throw new Error(`Error fetching collection: ${response.statusText}`);
+      }
+    }
+    const data: Card[] = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
