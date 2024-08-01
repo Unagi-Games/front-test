@@ -39,8 +39,13 @@ export const CreateCard = () => {
       });
 
       if (!response.ok) {
+        const errorData = await response.json();
+        setError(
+          errorData.message || 'An error occurred while submitting the form.'
+        );
+
         throw new Error('Network response was not ok');
-      }
+      } 
 
       setSuccess('Card created successfully!');
       setError(null);

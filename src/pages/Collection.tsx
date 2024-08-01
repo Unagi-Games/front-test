@@ -40,7 +40,17 @@ export const Collection: React.FC = () => {
   }
 
   if (collection.length === 0) {
-    return <div>No cards available</div>;
+    return (
+      <div className="no-result">
+        <div>No cards available</div>
+        <button
+          onClick={() => history.push('/create-card')}
+          className="new-card-btn"
+        >
+          Create a new card
+        </button>
+      </div>
+    );
   }
 
   return (
