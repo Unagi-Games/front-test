@@ -1,0 +1,20 @@
+.home {
+  display: flex;
+  font-size: 25px;
+}
+
+.home {
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: blue;
+  }
+}

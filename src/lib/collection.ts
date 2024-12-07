@@ -1,16 +1,30 @@
-export const fetchCollection = () => {
-  /**
-   * Step 2: Instead of directly returning the collection, fetch it from http://localhost:8001/cards
-   */
-  return [
-    {
-      id: 26166,
-      player: {
-        firstname: 'Karim',
-        lastname: 'Benzema',
-        birthday: '1987-12-19T08:38:50.090Z',
-        image: 'https://images.fotmob.com/image_resources/playerimages/26166.png'
-      }
-    }
-  ];
+import { Data } from '../types';
+
+// [
+//   {
+//     id: 26166,
+//     player: {
+//       firstname: 'Karim',
+//       lastname: 'Benzema',
+//       birthday: '1987-12-19T08:38:50.090Z',
+//       image:
+//         'https://images.fotmob.com/image_resources/playerimages/26166.png',
+//     },
+//   },
+// ]
+
+export const fetchCollection = async function (url: string) {
+  const response = await fetch(url);
+  return response.json();
+};
+
+export const addPlayer = async function (url: string, payload: Data) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  return response;
 };

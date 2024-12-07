@@ -1,0 +1,36 @@
+.loading {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #85888b;
+  animation: rotate 2s linear infinite;
+}
+
+.loading {
+  &.default {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+.loading {
+  &.small {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.loading {
+  &.large {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,42 @@
+.sort-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  input {
+    width: 20px;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-back {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+
+  button {
+    width: 75px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  button:hover {
+    background-color: rgb(116, 219, 250);
+    color: white;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}

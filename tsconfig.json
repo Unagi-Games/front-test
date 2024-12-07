@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "lib": ["es2018", "dom"],
+    "downlevelIteration": true
   }
 }
